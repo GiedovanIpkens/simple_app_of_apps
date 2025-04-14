@@ -1,6 +1,0 @@
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-  source:
-    repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
-    targetRevision: HEAD
