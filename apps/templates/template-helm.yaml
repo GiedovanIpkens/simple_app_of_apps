@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     repoURL: {{ $.Values.github_repo }}
-    path: {{ $.Values.base_path }}
+    path: {{ $.Values.base_path }}/{{ $chart.name }}
     targetRevision: HEAD
   destination:
     server: {{ $.Values.destination.server }}
