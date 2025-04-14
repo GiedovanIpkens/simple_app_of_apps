@@ -3,5 +3,5 @@ base_path: apps
 destination:
   server: https://kubernetes.default.svc
 charts:
-- name: app-of-apps
+- name: crossplane
   sync_wave: "-1"

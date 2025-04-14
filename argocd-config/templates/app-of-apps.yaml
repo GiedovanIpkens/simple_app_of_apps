@@ -7,10 +7,17 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: default
+    namespace: argocd
     name: in-cluster
   project: default
   source:
     path: apps
     repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+     - ServerSideApply=true
+     - CreateNamespace=false
