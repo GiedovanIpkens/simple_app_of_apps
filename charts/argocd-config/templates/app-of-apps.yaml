@@ -11,6 +11,7 @@ spec:
     name: in-cluster
   project: default
   source:
+    path: .
     repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
     targetRevision: HEAD
   syncPolicy:
