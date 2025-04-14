@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: helm-hooks
+    namespace: crossplane
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
