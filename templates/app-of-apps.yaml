@@ -11,7 +11,7 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: .
+    path: apps/app-of-apps
     repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
     targetRevision: HEAD
   syncPolicy:
@@ -21,3 +21,4 @@ spec:
     syncOptions:
      - ServerSideApply=true
      - CreateNamespace=false
+
