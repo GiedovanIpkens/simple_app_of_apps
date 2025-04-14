@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd
+    name: in-cluster
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+     - ServerSideApply=true
+     - CreateNamespace=false
