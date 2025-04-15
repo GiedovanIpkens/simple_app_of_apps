@@ -2,7 +2,8 @@ github_repo: https://github.com/GiedovanIpkens/simple_app_of_apps
 base_path: apps
 destination:
   server: https://kubernetes.default.svc
-charts:
+project: test
+apps:
 - name: crossplane
   sync_wave: "0"
 
