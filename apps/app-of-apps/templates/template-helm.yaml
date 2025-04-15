@@ -1,23 +1,23 @@
-{{- range $chart := .Values.charts }}
+{{- range $apps := .Values.apps }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ $chart.name }}
+  name: {{ $apps.name }}
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd.argoproj.io/sync-options: Prune=true
-    argocd.argoproj.io/sync-wave: "{{ $chart.sync_wave | default 0 | toString }}"
+    argocd.argoproj.io/sync-wave: "{{ $apps.sync_wave | default 0 | toString }}"
 spec:
   project: default
   source:
     repoURL: {{ $.Values.github_repo }}
-    path: {{ $.Values.base_path }}/{{ $chart.name }}
+    path: {{ $.Values.base_path }}/{{ $apps.name }}
     targetRevision: HEAD
   destination:
     server: {{ $.Values.destination.server }}
-    namespace: {{ $chart.name }}
+    namespace: {{ $apps.name }}
   syncPolicy:
     automated:
       prune: true
