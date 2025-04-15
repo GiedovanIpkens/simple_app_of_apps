@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: {{ $.Values.github_repo }}
+    repoURL: {{ $.Values.repoUrl }}
     path: {{ $.Values.base_path }}/{{ $apps.name }}
     targetRevision: HEAD
   destination:
