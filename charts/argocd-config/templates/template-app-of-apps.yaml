@@ -15,6 +15,9 @@ spec:
     path: {{ $appofapps_config.path }}
     repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
     targetRevision: {{ $appofapps_config.targetRevision | default "HEAD" | toString }}
+    helm:
+      valueFiles:
+        - {{ appofapps_config.valuesFile | default "values.yaml" }}
   syncPolicy:
     automated:
       prune: true

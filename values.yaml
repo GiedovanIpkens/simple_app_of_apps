@@ -3,5 +3,9 @@ argocd-config:
   description: AppProject that hosts your application
   # docstring as an example
   appofapps:
+    dev:
+      path: apps/app-of-apps
+      valuesFile: values-dev.yaml
     test:
       path: apps/app-of-apps
+      valuesFile: values-tst.yaml
