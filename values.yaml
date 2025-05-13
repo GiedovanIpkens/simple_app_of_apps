@@ -4,6 +4,7 @@ argocd-config:
   # docstring as an example
   appofapps:
     test:
+      path: ./app-of-apps
       apps:
         test-app:
           targetRevision: main
