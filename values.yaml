@@ -4,11 +4,11 @@ argocd-config:
   # docstring as an example
   appofapps:
     test:
-      path: ./app-of-apps
+      path: apps/app-of-apps
       apps:
-        test-app:
-          targetRevision: main
-          path: ./test-app
+        crossplane:
+          targetRevision: HEAD
+          path: apps/crossplane
           repo: test
           syncPolicy: {
             syncOptions: {}
