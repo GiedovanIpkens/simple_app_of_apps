@@ -8,10 +8,10 @@ argocd-config:
       syncPolicy: {
         syncOptions: {}
       }
-    # kyverno:
-    #   targetRevision: HEAD
-    #   path: apps/kyverno
-    #   syncPolicy: {
-    #     syncOptions: {}
-    #   }
+    kyverno:
+      targetRevision: HEAD
+      path: apps/kyverno
+      syncPolicy: {
+        syncOptions: {}
+      }
 
