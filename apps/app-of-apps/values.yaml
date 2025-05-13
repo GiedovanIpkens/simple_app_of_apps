@@ -2,9 +2,15 @@ base_path: apps
 destination:
   server: https://kubernetes.default.svc
 argocd-config:
-  repoUrl: https://github.com/GiedovanIpkens/simple_app_of_apps
-  project: test
-  apps:
-  - name: crossplane
-    sync_wave: "0"
+  appofapps:
+    test:
+      path: apps/app-of-apps
+      apps:
+        crossplane:
+          targetRevision: HEAD
+          path: apps/crossplane
+          repo: test
+          syncPolicy: {
+            syncOptions: {}
+          }
 
