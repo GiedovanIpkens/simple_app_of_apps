@@ -1,5 +1,4 @@
-{{- range $appofapps, $appofapps_config := .Values.appofapps }}
-{{- range $app, $app_config := $appofapps_config.apps }}
+{{- range $app, $app_config := $.Values.apps }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -37,6 +36,5 @@ spec:
       {{- end }}
     {{- end }}
 ---
-{{- end }}
 {{- end }}
 

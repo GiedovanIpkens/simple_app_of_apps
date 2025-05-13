@@ -2,15 +2,12 @@ base_path: apps
 destination:
   server: https://kubernetes.default.svc
 argocd-config:
-  appofapps:
-    test:
-      path: apps/app-of-apps
-      apps:
-        crossplane:
-          targetRevision: HEAD
-          path: apps/crossplane
-          repo: test
-          syncPolicy: {
-            syncOptions: {}
-          }
+  apps:
+    crossplane:
+      targetRevision: HEAD
+      path: apps/crossplane
+      repo: test
+      syncPolicy: {
+        syncOptions: {}
+      }
 

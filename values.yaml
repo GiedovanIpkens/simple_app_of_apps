@@ -5,11 +5,3 @@ argocd-config:
   appofapps:
     test:
       path: apps/app-of-apps
-      apps:
-        crossplane:
-          targetRevision: HEAD
-          path: apps/crossplane
-          repo: test
-          syncPolicy: {
-            syncOptions: {}
-          }
