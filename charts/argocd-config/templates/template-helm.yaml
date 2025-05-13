@@ -1,0 +1,42 @@
+{{- range $appofapps, $appofapps_config := .Values.appofapps }}
+{{- range $app, $app_config := $appofapps_config.apps }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $app }}
+  namespace: {{ $.Values.argocdnamespace | default "argocd" }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-options: "{{ $app_config.syncPolicy.prune | default "Prune=false" }}"
+    {{- if $app_config.sync_wave }}
+    argocd.argoproj.io/sync-wave: "{{ $app_config.sync_wave | toString }}"
+    {{- end }}
+spec:
+  project: {{ $.Values.project }}
+  source:
+    path: {{ $app_config.path }}
+    repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
+    targetRevision: {{ $app_config.targetRevision | default "HEAD" | toString }}
+  destination:
+    server: {{ $.Values.server | default "https://kubernetes.default.svc" }}
+    namespace: {{ $app_config.namespace | default "argocd" }}
+    syncPolicy:
+    {{- if $app_config.disableSyncPolicy }}
+    {}
+    {{- else }}
+    automated:
+      prune: {{ $app_config.syncPolicy.prune | default false }}
+      selfHeal: {{ $app_config.syncPolicy.selfHeal | default true }}
+    syncOptions:
+      {{- if $app_config.syncPolicy.syncOptions.createNamespace | default true }}
+      - CreateNamespace=true
+      {{- end }}
+      {{- if $app_config.syncPolicy.syncOptions.serverSideApply | default true }}
+      - ServerSideApply=true
+      {{- end }}
+    {{- end }}
+---
+{{- end }}
+{{- end }}
+

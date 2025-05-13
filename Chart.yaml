@@ -4,5 +4,5 @@ description: Creates an app of apps
 type: application
 version: 0.1.0
 dependencies:
-- name: "bootstrap-app-of-apps"
+- name: "argocd-config"
   version: "0.1.0"
