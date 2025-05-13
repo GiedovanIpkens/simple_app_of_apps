@@ -1,6 +1,6 @@
 dependencies:
 - name: argocd-config
-  repository: file://../../charts/argocd-config
+  repository: ""
   version: 0.1.0
-digest: sha256:ae1b91762ab93b373e635370381ac4671aeabab1bd2d8c493de55735ca436f2d
-generated: "2025-05-13T11:46:10.944841+02:00"
+digest: sha256:65ac94204e68d50b02ee4ab9340851cbb6b118c6220b73b8c66bea66c70d793f
+generated: "2025-05-13T12:30:12.664076+02:00"

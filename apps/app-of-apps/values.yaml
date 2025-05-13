@@ -1,4 +1,3 @@
-base_path: apps
 destination:
   server: https://kubernetes.default.svc
 argocd-config:
@@ -6,6 +5,12 @@ argocd-config:
     crossplane:
       targetRevision: HEAD
       path: apps/crossplane
+      syncPolicy: {
+        syncOptions: {}
+      }
+    kyverno:
+      targetRevision: HEAD
+      path: apps/kyverno
       syncPolicy: {
         syncOptions: {}
       }

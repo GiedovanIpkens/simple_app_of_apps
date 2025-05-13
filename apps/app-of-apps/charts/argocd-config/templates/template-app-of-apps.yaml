@@ -1,0 +1,29 @@
+{{- range $appofapps, $appofapps_config := .Values.appofapps }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-{{ $appofapps }}
+  namespace: {{ $.Values.argocdnamespace | default "argocd" }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ $.Values.argocdnamespace | default "argocd" }}
+    name: in-cluster
+  project: {{ $.Values.project }}
+  source:
+    path: {{ $appofapps_config.path }}
+    repoURL: https://github.com/GiedovanIpkens/simple_app_of_apps
+    targetRevision: {{ $appofapps_config.targetRevision | default "HEAD" | toString }}
+    directory:
+      recurse: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+     - ServerSideApply=true
+     - CreateNamespace=false
+---
+{{- end }}
+
