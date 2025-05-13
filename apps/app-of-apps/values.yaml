@@ -6,7 +6,6 @@ argocd-config:
     crossplane:
       targetRevision: HEAD
       path: apps/crossplane
-      repo: test
       syncPolicy: {
         syncOptions: {}
       }

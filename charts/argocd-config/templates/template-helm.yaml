@@ -20,7 +20,7 @@ spec:
   destination:
     server: {{ $.Values.server | default "https://kubernetes.default.svc" }}
     namespace: {{ $app_config.namespace | default "argocd" }}
-    syncPolicy:
+  syncPolicy:
     {{- if $app_config.disableSyncPolicy }}
     {}
     {{- else }}
