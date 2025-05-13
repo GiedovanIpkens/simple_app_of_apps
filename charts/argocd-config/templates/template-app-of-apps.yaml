@@ -17,7 +17,7 @@ spec:
     targetRevision: {{ $appofapps_config.targetRevision | default "HEAD" | toString }}
     helm:
       valueFiles:
-        - {{ appofapps_config.valuesFile | default "values.yaml" }}
+        - {{ $appofapps_config.valuesFile | default "values.yaml" }}
   syncPolicy:
     automated:
       prune: true
