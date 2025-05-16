@@ -1,9 +1,0 @@
-apiVersion: v2
-name: app-of-apps
-description: Applications
-type: application
-version: 0.1.0
-dependencies:
-  - name: "argocd-config"
-    version: "0.1.0"
-

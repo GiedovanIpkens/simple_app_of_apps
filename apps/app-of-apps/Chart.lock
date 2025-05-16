@@ -1,6 +1,0 @@
-dependencies:
-- name: argocd-config
-  repository: ""
-  version: 0.1.0
-digest: sha256:65ac94204e68d50b02ee4ab9340851cbb6b118c6220b73b8c66bea66c70d793f
-generated: "2025-05-13T12:30:12.664076+02:00"
