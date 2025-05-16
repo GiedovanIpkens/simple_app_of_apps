@@ -4,8 +4,11 @@ argocd-config:
   # docstring as an example
   appofapps:
     dev:
-      path: apps/app-of-apps
-      valuesFile: values-dev.yaml
+      apps:
+        crossplane:
+          path: apps/app-of-apps/crossplane
+        kyverno:
+          path: apps/app-of-apps/kyverno
     test:
       path: apps/app-of-apps
       valuesFile: values-tst.yaml
