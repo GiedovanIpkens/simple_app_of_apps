@@ -7,8 +7,14 @@ argocd-config:
       apps:
         crossplane:
           path: apps/app-of-apps/crossplane
+          syncPolicy: {
+            syncOptions: {}
+          }
         kyverno:
           path: apps/app-of-apps/kyverno
+          syncPolicy: {
+            syncOptions: {}
+          }
     test:
       path: apps/app-of-apps
       valuesFile: values-tst.yaml
